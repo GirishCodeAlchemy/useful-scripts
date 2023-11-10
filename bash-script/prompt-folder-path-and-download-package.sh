@@ -14,7 +14,7 @@ else
  cd "$folder_path"
 
  # Download and install a package (e.g., 'example_package' for demonstration)
- wget https://lnkd.in/gSJmRzFR
+ wget https://example.com/example_package.tar.gz
  tar -xzf example_package.tar.gz
 
  # You can add installation steps here if necessary
