@@ -1,4 +1,4 @@
-# useful-scripts
+# Useful Scripts
 
 ## Cronjob
 
