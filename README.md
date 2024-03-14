@@ -9,7 +9,7 @@
 
 ## Bash Scripts
 
-- [Monitor Server Ports and Alert](BashScript/monitor-server-ports-and-notify.sh): Continuously monitors server ports. Sends email notifications if any new listening ports are detected.
+- [Monitor Server Ports and Alert](BashScript/monitor-server-ports-and-notify.txt): Continuously monitors server ports. Sends email notifications if any new listening ports are detected.
   <iframe src="./BashScript/monitor-server-ports-and-notify.sh" frameborder="0" width="100%" height="400"></iframe>
 
 - [Prompt Folder Path and Download Package](BashScript/prompt-folder-path-and-download-package.sh): Prompts for a folder path. Indicates folder existence and creates the folder if it doesn't exist. Downloads and installs a package in the newly created folder.
@@ -19,6 +19,6 @@
    <iframe src="./BashScript/restart-server.sh" frameborder="0" width="100%" height="400"></iframe>
   
 
-- [Docker Restart](BashScript/docker-container-restart.sh): Shell script to monitor Docker containers. If the containers exit, they should restart automatically.
+- [Docker Restart](BashScript/docker-container-restart.txt): Shell script to monitor Docker containers. If the containers exit, they should restart automatically.
    <iframe src="./BashScript/docker-container-restart.sh" frameborder="0" width="100%" height="400"></iframe>
   
