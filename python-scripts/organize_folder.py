@@ -10,10 +10,10 @@ def alchemy_organize(path: str) -> None:
     videos_dir = directory / 'videos'
     others_dir = directory / 'others'
 
-    AUDIOS_EXT = ['.mp3', '.wav', '.flac']  
-    VIDEOS_EXT = ['.mp4', '.avi', '.mkv']   
-    IMAGES_EXT = ['.jpg', '.png', '.gif']   
-    DOCUMENTS_EXT = ['.pdf', '.docx', '.txt']  
+    AUDIOS_EXT = ['.mp3', '.wav', '.flac']
+    VIDEOS_EXT = ['.mp4', '.avi', '.mkv']
+    IMAGES_EXT = ['.jpg', '.jpeg','.png', '.gif']
+    DOCUMENTS_EXT = ['.pdf', '.docx', '.txt']
 
     file_names = [f for f in directory.iterdir() if f.is_file()]
 
