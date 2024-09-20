@@ -4,38 +4,48 @@ from pathlib import Path
 def alchemy_organize(path: str) -> None:
     directory = Path(path)
 
-    audios_dir = directory / 'audios'
-    images_dir = directory / 'images'
-    docs_dir = directory / 'documents'
-    videos_dir = directory / 'videos'
-    others_dir = directory / 'others'
+    # Define directories for different file types
+    file_type_dirs = {
+        'audios': directory / 'audios',
+        'images': directory / 'images',
+        'documents': directory / 'documents',
+        'videos': directory / 'videos',
+        'others': directory / 'others'
+    }
 
-    AUDIOS_EXT = ['.mp3', '.wav', '.flac']
-    VIDEOS_EXT = ['.mp4', '.avi', '.mkv']
-    IMAGES_EXT = ['.jpg', '.jpeg','.png', '.gif']
-    DOCUMENTS_EXT = ['.pdf', '.docx', '.txt']
+    # File extensions grouped by type
+    EXTENSIONS = {
+        'audios': ['.mp3', '.wav', '.flac', '.aac', '.ogg', '.wma'],
+        'videos': ['.mp4', '.avi', '.mkv', '.mov', '.wmv', '.flv'],
+        'images': ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.svg'],
+        'documents': ['.pdf', '.docx', '.txt', '.xlsx', '.pptx', '.csv', '.md', '.html'],
+    }
 
-    file_names = [f for f in directory.iterdir() if f.is_file()]
-
-    for folder in [audios_dir, images_dir, docs_dir, videos_dir, others_dir]:
+    # Create the directories if they don't exist
+    for folder in file_type_dirs.values():
         folder.mkdir(exist_ok=True)
 
-    for file in file_names:
-        extension = Path(file).suffix.lower()
+    # Get all the files in the directory
+    file_names = [f for f in directory.iterdir() if f.is_file()]
 
-        if extension in AUDIOS_EXT:
-            new_folder = audios_dir
-        elif extension in VIDEOS_EXT:
-            new_folder = videos_dir
-        elif extension in IMAGES_EXT:
-            new_folder = images_dir
-        elif extension in DOCUMENTS_EXT:
-            new_folder = docs_dir
-        else:
-            new_folder = others_dir
+    # Iterate through files and move them to appropriate directories
+    for file in file_names:
+        extension = file.suffix.lower()
+        moved = False
+
+        # Check if the file belongs to any of the defined categories
+        for category, ext_list in EXTENSIONS.items():
+            if extension in ext_list:
+                new_folder = file_type_dirs[category]
+                moved = True
+                break
         
+        # If the file doesn't match any category, move it to 'others'
+        if not moved:
+            new_folder = file_type_dirs['others']
+
+        # Move the file to the new folder
         new_path = new_folder / file.name
-        
         file.rename(new_path)
 
 
