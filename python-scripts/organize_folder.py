@@ -51,4 +51,5 @@ def alchemy_organize(path: str) -> None:
 
 if __name__ == '__main__':
     path = input(r'PATH: ')
+    print(f"Selected path is {path}")
     alchemy_organize(path)
