@@ -29,6 +29,7 @@ _log = "/path/to/logfile.log"
 with open(_log, 'a') as log_file:
     log_file.write(f"{i:<10} | {expiry:<20} | {expiry_days:<10} | {cert_sno:<35}\n")
 
+# 6. Print the expiry details
 print(f"Expiry Date: {expiry}")
 print(f"Expiry in Days: {expiry_days}")
 print(f"Certificate Serial Number: {cert_sno}")
